@@ -15,7 +15,7 @@ MAC = HEDEF = 1
 
 
 def MAC_adresi(arayüz,hedef_ip):
-	#Ağ arayüzü kullanılarak hedefin mac adresini döner. Default arp paketi yollayınca hedef ip mac adresini dönüyor.
+	#Bu fonksiyon ağ arayüzü kullanarak hedefin mac adresini döner. ARP sorgusu gönderildiğinde hedef mac adresini dönüyor.
 	try:
 		kaynak_IP = get_if_addr(arayüz) #Saldırgan local ip
 		kaynak_MAC = get_if_hwaddr(arayüz) #saldırgan arayüz mac adresi
