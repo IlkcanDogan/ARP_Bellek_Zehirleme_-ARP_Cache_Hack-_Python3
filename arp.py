@@ -164,4 +164,4 @@ except KeyboardInterrupt:
 	#CTRL+C basınca işlem yapacak
 	kontrol_kuyruk.put(("kapat",))
 	zehir_iş_parçacığı.join()
-	print("Görüşmek üzere....")
+	print("Görüşmek üzere.... İlkcan Doğan...")
