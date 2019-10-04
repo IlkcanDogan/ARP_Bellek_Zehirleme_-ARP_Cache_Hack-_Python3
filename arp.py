@@ -1,13 +1,12 @@
 import os
 import sys
-import argparse
 import threading
 import queue
 import time
 import netifaces
 
 from scapy.config import conf 
-conf.ipv6_enabled = False
+conf.ipv6_enabled = False #Scapy ipv6 özelliğini kapattım.
 
 from scapy.all import *
 
@@ -78,7 +77,7 @@ def zehirlemeyi_başlat(hedefler, ağ_geçidi, kontrol_kuyruk, saldırgan_MAC):
 
 		elif komut == "ekle":
 			hedefler.append(eleman[HEDEF])
-			print("isteye eklendi.")
+			print("Listeye eklendi.")
 
 		elif komut == "rapor":
 			print("\n\n")
@@ -88,7 +87,7 @@ def zehirlemeyi_başlat(hedefler, ağ_geçidi, kontrol_kuyruk, saldırgan_MAC):
 				print("IP: %s  MAC: %s " % h)
 			print("*" * 38)
 			print("\n")
-	#Bütün cihazların arp tablosunu sıfırladım
+	#Bütün cihazların arp tablosunu eski haline döndürmesi için.
 	düzelt(hedefler, ağ_geçidi)
 
 
