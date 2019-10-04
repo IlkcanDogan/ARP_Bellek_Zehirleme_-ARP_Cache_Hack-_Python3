@@ -10,7 +10,7 @@ conf.ipv6_enabled = False #Scapy ipv6 özelliğini kapattım.
 
 from scapy.all import *
 
-IP = CMD = 0
+IP = KOMUT = 0
 MAC = HEDEF = 1
 
 
@@ -71,7 +71,7 @@ def zehirlemeyi_başlat(hedefler, ağ_geçidi, kontrol_kuyruk, saldırgan_MAC):
 			
 			print("Hata") 
 
-		komut = eleman[CMD].lower() #elemanların hepsini küçük harf yap ama sadece komut kısmını yani cmd = 0, tuple daki ilk 0 indisli elemanu
+		komut = eleman[KOMUT].lower() #elemanların hepsini küçük harf yap ama sadece komut kısmını yani KOMUT = 0, tuple daki ilk 0 indisli elemanu
 		if komut == "kapat":
 			durum = True
 
@@ -138,7 +138,7 @@ try:
 
 		komut = input('komut# ').split()
 		if komut:
-			kmt = komut[CMD].lower()
+			kmt = komut[KOMUT].lower()
 			if kmt in ['yardım','?']:
 				print("ekle <IP>: Zehirleme listesine IP adresini ekler.\n" + \
 					  "rapor: Zehirleme raporunu gösterir.\n" + \
