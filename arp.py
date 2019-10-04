@@ -68,8 +68,8 @@ def zehirlemeyi_başlat(hedefler, ağ_geçidi, kontrol_kuyruk, saldırgan_MAC):
 		try:
 			eleman = kontrol_kuyruk.get(block = False) #kontrol_kuyruk (ilk giren ilk çıkan mantığıyla çalışır) get kuyruktaki veriyi alır.
 		except Empty:
-			#thread ile çalışan döngü için boş olma ihtimalinde çıkış yapılmaz
-			print("Ölümcül Hata... (Boş bırakmayın!)")
+			
+			print("Hata") 
 
 		komut = eleman[CMD].lower() #elemanların hepsini küçük harf yap ama sadece komut kısmını yani cmd = 0, tuple daki ilk 0 indisli elemanu
 		if komut == "kapat":
