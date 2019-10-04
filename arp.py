@@ -67,7 +67,7 @@ def zehirlemeyi_başlat(hedefler, ağ_geçidi, kontrol_kuyruk, saldırgan_MAC):
 
 		#kontrol dizisi(kuyruk boş değilse döngü biter ve bu kısıma geçer)
 		try:
-			eleman = kontrol_kuyruk.get(block = False) #kontrol_dizisinden (ilk giren ilk çıkan mantığıyla çalışır) get kuyruktaki veriyi alır.
+			eleman = kontrol_kuyruk.get(block = False) #kontrol_kuyruk (ilk giren ilk çıkan mantığıyla çalışır) get kuyruktaki veriyi alır.
 		except Empty:
 			#thread ile çalışan döngü için boş olma ihtimalinde çıkış yapılmaz
 			print("Ölümcül Hata... (Boş bırakmayın!)")
