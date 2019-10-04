@@ -34,7 +34,7 @@ def MAC_adresi(arayüz,hedef_ip):
 																
 		if len(cevapsız_paket) > 0:
 			#cevap yoksa
-			print("%s için MAC adresi tespit edilemedi!" % hedef_ip)
+			print("[-] %s için MAC adresi tespit edilemedi!" % hedef_ip)
 			exit()
 			
 		else:
@@ -42,15 +42,15 @@ def MAC_adresi(arayüz,hedef_ip):
 			#print(cevaplar[0][1].psrc ,cevaplar[0][1].hwsrc)
 
 	except socket.gaierror:	
-		print("IP adresi doğru formatta değil!")
+		print("[-] IP adresi doğru formatta değil!")
 	except OSError:
-		print("Ağ arayüzü bulunamadı!")
+		print("[-] Ağ arayüzü bulunamadı!")
 
 
 
 def zehirlemeyi_başlat(hedefler, ağ_geçidi, kontrol_kuyruk, saldırgan_MAC):
 	os.system("echo 1 > /proc/sys/net/ipv4/ip_forward") #IP yönlendirmesi aktif
-	print("IP yönlendirmesi etkin...")
+	print("[*] IP yönlendirmesi etkin...")
 
 
 
@@ -77,7 +77,7 @@ def zehirlemeyi_başlat(hedefler, ağ_geçidi, kontrol_kuyruk, saldırgan_MAC):
 
 		elif komut == "ekle":
 			hedefler.append(eleman[HEDEF])
-			print("Listeye eklendi.")
+			print("[+] Listeye eklendi.")
 
 		elif komut == "rapor":
 			print("\n\n")
@@ -94,13 +94,13 @@ def zehirlemeyi_başlat(hedefler, ağ_geçidi, kontrol_kuyruk, saldırgan_MAC):
 
 def düzelt(hedefler, ağ_geçidi):
 	#hedeflere ve ağ geçidine doğru paketleri ARP yanıtları gönderiyor.
-	print("Saldırı durduruluyor, ARP önbellekleri düzeltiliyor...")
+	print("[*] Saldırı durduruluyor, ARP önbellekleri düzeltiliyor...")
 	for i in range(3):
 		for h in hedefler:
 			ARP_gönder(h[IP], h[MAC], ağ_geçidi[IP], ağ_geçidi[MAC])
 			ARP_gönder(ağ_geçidi[IP], ağ_geçidi[MAC], h[IP], h[MAC])
 		time.sleep(1)
-	print("ARP önbellekleri düzeltildi!")
+	print("[*] ARP önbellekleri düzeltildi!")
 
 
 def ARP_gönder(gönderilecek_IP, gönderilecek_MAC, kaynak_IP, kaynak_MAC):
@@ -155,7 +155,7 @@ try:
 					hedef = (ip, MAC_adresi(arayüz, ip))
 					kontrol_kuyruk.put((kmt, hedef))
 				except Exception:
-					print("IP adresi eklenemedi: %s" % ip)
+					print("[-] IP adresi eklenemedi: %s" % ip)
 
 			elif kmt == "rapor":
 				kontrol_kuyruk.put((kmt,))
