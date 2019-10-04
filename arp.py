@@ -136,7 +136,7 @@ try:
 	while zehir_iş_parçacığı.is_alive():
 		time.sleep(1)
 
-		komut = input('arpspoof# ').split()
+		komut = input('komut# ').split()
 		if komut:
 			kmt = komut[CMD].lower()
 			if kmt in ['yardım','?']:
